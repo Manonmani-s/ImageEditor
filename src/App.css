@@ -1,0 +1,99 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "image sidebar"
+    "slider sidebar";
+  height: 100vh;
+  width: 100vw;
+  background-color: #dadada;
+}
+.main-image {
+  grid-area: image;
+  height: 100%;
+  width: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.upload-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.upload-image > h1 {
+  font-size: 70px;
+  color: blue;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: hsl(265, 100%, 86%);
+  border-left: 1px solid hsl(265, 100%, 56%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sidebar-item {
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  flex-direction: column;
+  background-color: hsl(265, 100%, 86%);
+  padding: 1.5rem 3rem;
+  font-size: 20px;
+  transition: background-color 350ms;
+}
+
+.sidebar-item:hover {
+  background-color: hsl(265, 100%, 76%);
+}
+.sidebar-item.active {
+  background-color: hsl(265, 100%, 70%);
+}
+
+.sidebar-item::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 0;
+  height: 2px;
+  background-color: hsl(265, 100%, 46%);
+}
+
+.sidebar-item:nth-last-child(2)::after {
+  display: none;
+}
+
+.download {
+  border: none;
+  outline: none;
+  background-color: black;
+  font-size: 20px;
+  color: white;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+
+.slider-container {
+  grid-row: slider;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.slider {
+  width: 100%;
+  cursor: pointer;
+}
